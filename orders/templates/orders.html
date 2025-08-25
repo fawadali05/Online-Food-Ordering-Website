@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>My Orders</h3>
+<table class="table">
+  <thead><tr><th>Order #</th><th>Status</th><th>Total</th><th>Date</th><th></th></tr></thead>
+  <tbody>
+    {% for order in orders %}
+      <tr>
+        <td>#{{ order.id }}</td>
+        <td>{{ order.get_status_display }}</td>
+        <td>PKR {{ order.total_price }}</td>
+        <td>{{ order.created_at|date:"Y-m-d H:i" }}</td>
+        <td><a href="{% url 'order_detail' order.id %}" class="btn btn-sm btn-outline-secondary">Track</a></td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5">No orders yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

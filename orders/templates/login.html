@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <form method="post" class="card card-body">
+      {% csrf_token %}
+      <h4 class="mb-3">Login</h4>
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control" type="text" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" required>
+      </div>
+      <button class="btn btn-primary w-100">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
